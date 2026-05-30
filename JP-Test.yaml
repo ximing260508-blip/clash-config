@@ -1,0 +1,18 @@
+mixed-port: 7890
+
+mode: global
+
+proxies:
+  - name: TEST-JP
+    type: http
+    server: 1.1.1.1
+    port: 80
+
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - TEST-JP
+
+rules:
+  - MATCH,Proxy
